@@ -1,67 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style type="text/css">
-    .c1 {
-        background-image: url("https://www.google.com.hk/images/nav_logo242_hr.png");
-        background-position: 0px -20px;
-        width: 22px;
-        height: 29px;
+  <meta charset="UTF-8">
+  <title>background-practise</title>
+  <style>
+    body {
+      margin: 0px;
+      background-image: url(11.jpg);
+      background-position: top left;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      xmin-width: 600px;
     }
 
-    .c2 {
-        width: 55px;
-        height: 54px;
-        background-image: url("https://www.google.com.hk/images/nav_logo242_hr.png");
-        background-position: -277px -84px;
+    .a, .b, .c, .d, .view, .word, .trade {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .a {
+      height: 100vh;
+      background-image: url(car1.png);
+      background-color: #072a4440;
+
+    }
+    .b {
+      height: 100vh;
+      background-image: url(car3.png);
+      background-color: #990c1e40;
+    }
+    .c {
+      height: 100vh;
+      background-image: url(car2.png);
+      background-color: #57606840;
+      
+    }
+    .d {
+      height: 100vh;
+      background-image: url(car4.png);
+      background-color: #8c4f0040;
     }
 
-    .c3 {
-        width: 34px;
-        height: 42px;
-        background-image: url("https://www.google.com.hk/images/nav_logo242_hr.png");
-        background-position: -83px -512px;
+    .view {
+      background-image: url(22.jpg);
+      background-position: top left;
+      border-bottom: 2px solid black;
     }
 
-    .p1 {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcGfh5pMhhloZeuUthJ8lt9CoorSqUV9VDZGsRgnxWECfb_md3cg");
+    .word {
+      width: 60%;
+      margin: 40px auto;
+      border: 2px solid #963;
+      background-image: url(22.jpg);
+      background-position: top left;
+      padding: 20px;
     }
 
-    .p2 {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn_qpzdTauL_fa59HsrkqNvaV78BaVZQl398b-SmfsDFkafomj");
+    .trade, h2 {
+      height: 50px;
+      width: 100%; 
+      background-color: #8c4f0040;
+      padding: 0  20px;
+      margin-left: -20px
     }
 
-    .p3 {
-        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ75xcnMvjL1fvy8aFR7k_D_PujMadwsrUUdGJYuuV9zPM_gHRo");
+    .trade {
+      background-image: url(porsche-svg.svg);
     }
 
-    section {
-        background-position: center center;
-        height: 100vh;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+    h2{
+      line-height: 50px;
     }
-    input {
-      height: 30px;
+    
+    footer {
+      padding-top: 30px;
+      height: 100px;
+      width:100%;
+      position: relative;
+      
     }
-    </style>
+    .footer {
+      height: 20px;
+      width: 54px;
+      background-image: url(nav_logo242_hr.png);
+      background-repeat: no-repeat;
+      background-position: 00px -157px;
+      transform: rotate(180deg);
+      display: inline-block;
+      border: 1px solid silver;
+    }
+    
+    a {
+      position: absolute;
+      left: 85%;
+      top: 10%;
+    }
+
+    .jiantou {
+      height: 56px;
+      width: 56px;
+      background-image: url(nav_logo242_hr.png);
+      background-repeat: no-repeat;
+      background-position: -276px -82px;
+      margin-left: 48%;
+      margin-top: -40px;
+    }
+    
+    .humen {
+      height: 26px;
+      width: 25px;
+      background-image: url(nav_logo242_hr.png);
+      background-repeat: no-repeat;
+      background-position: -32px -655px;
+      margin-left: 70%;
+      margin-top: -40px;
+      transition: background-position 0.7s;
+    }
+
+    .humen:hover {
+      background-position: -2px -655px;
+    }
+
+  </style>
 </head>
-
 <body>
-    <div class="c1">
-    </div>
-    <div class="c2">
-    </div>
-    <div class="c3"></div>
-    <hr/>
-    <section class="p1"></section>
-    <section class="p2"></section>
-    <section class="p3"></section>
-    <hr/>
-    <input type="text" name="username">
-</body>
 
+  <div class="view">
+    <div id="top" class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d"></div>
+  </div>
+
+  <div class="word">
+    <h2>Lorem ipsum dolor sit</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptatem delectus animi nostrum voluptatum dolor ipsa totam quaerat itaque, veritatis libero corporis. Harum a aperiam unde, ipsam voluptatibus. Rerum tempore dolore in tenetur, cumque deleniti magnam ad omnis ullam possimus mollitia hic, est excepturi fugiat necessitatibus quae maiores quod facilis explicabo nobis ducimus eveniet eaque. Nulla perferendis eum tempora quae porro architecto numquam dolore, dignissimos, dolorem eaque aspernatur enim quam consequuntur illum magnam voluptatibus officia provident? Nam sed maiores nulla voluptatem. Hic fugit veniam ullam, reprehenderit aliquid, architecto debitis blanditiis corporis eius quisquam laudantium esse earum aspernatur, facere inventore. Numquam!</p>
+    <div class="trade"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic ullam magni debitis voluptatum animi aperiam delectus perferendis velit. Voluptate expedita illo aliquid est nesciunt assumenda, maxime laudantium autem ab sed qui beatae excepturi cum voluptas accusamus culpa recusandae consequatur ex. Officia, et. Consequuntur possimus eveniet, ipsam adipisci doloremque aperiam et porro reiciendis! Provident rem ad ratione, dignissimos animi minima error tempora vero ipsam nostrum iste magni, quis sint quae suscipit ipsum consequatur quia saepe ducimus. Qui accusamus, nihil esse veniam. Animi earum et voluptatibus porro sapiente, qui repellendus dolorem itaque non nihil eligendi perspiciatis a id, ad, distinctio nemo!</p>
+    <div class="trade"></div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos molestiae quaerat obcaecati consequuntur soluta ex earum sapiente, cum necessitatibus animi iste eveniet fuga error modi quidem quos beatae, ad maxime cumque asperiores sint ratione tempore at eligendi. Tenetur magnam quos dolore quo blanditiis enim id. Repellat, qui dolor tempore et! Totam eius aliquam, id vel voluptate fuga nesciunt! Laborum fugiat corporis nemo repudiandae, unde vel fugit provident libero mollitia quae id tempora, modi laudantium sapiente nihil, quas temporibus illum est iusto similique atque repellat aperiam cupiditate! Dolore minima, minus ratione perferendis aspernatur doloremque reprehenderit asperiores laudantium autem excepturi consectetur officia!</p>
+  </div>
+
+  <footer>
+    <a href="#top" id="a">
+      <div class="footer" title="back to top"></div>
+    </a>
+    <div class="jiantou" title="往左看"></div>
+    <div class="humen" title="不是我"></div>
+  </footer>
+</body>
 </html>
