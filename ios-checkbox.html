@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>input-beauty</title>
+  <style>
+
+    /*-------------------文本框---------------------*/
+    .input-text input {
+      font-size: inherit;
+      font-family: inherit;
+      margin: -5px auto;
+      padding: 2px;
+      border: 1px solid black;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+    /*-------------------小米---------------------*/
+    #mi {
+      display: none;
+    }
+    .xiaomi label {
+      display: inline-block;
+      height: 62px;
+      width: 110px;
+      background-color: #e8ebf6;
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+    }
+    .mi-ball {
+      width: 43px;
+      height: 43px;
+      background-color: #aab7c6;
+      border-radius: 43px;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 10px;
+      transition: left .25s linear,
+        background-color 0s .5s;
+    }
+    #mi:checked + label .mi-ball {
+      left: 57px;
+      background-color: #5da1eb;
+      transition: left .25s linear,
+        background-color 0s .5s;
+    }
+    /*-------------------果果---------------------*/
+    #guoguo {
+      display: none;
+    }
+    .iphone label {
+      box-sizing: border-box;;
+      display: inline-block;
+      width: 116px;
+      height: 58px;
+      background-color: #d9dad9;
+      border-radius: 50px;
+      position: relative;
+      border: 2px solid #d9dad9;
+      cursor: pointer;
+      transition:
+        background-color .3s linear,
+        border-color .3s linear;
+
+    }
+
+    .guoguo-ball {
+      z-index: 10;
+      width: 54px;
+      height: 54px;
+      box-sizing: border-box;
+      background-color: white;
+      border-radius: 100px;
+      border:1px solid #e2e7e4;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0px;
+      xright: 58px;
+      transition: left .3s cubic-bezier(.58,1.05,.82,1.1);
+    }
+    #guoguo:checked + label > .guoguo-ball {
+      left: 58px;
+    }
+    #guoguo:checked + label {
+      background-color: #48ec91;
+      border-color: #48ec91;
+    }
+    /*.guoguo-ball:active{
+      width:64px;
+    }*/
+    .center {
+      box-sizing: border-box;;
+      display: inline-block;
+      width: 112px;
+      height: 54px;
+      background-color: #fff;
+      border-radius: 50px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      margin: auto;
+      transition: 
+        width .2s cubic-bezier(.47,.19,.53,.43),
+        height .2s cubic-bezier(.37,.32,.46,.46);
+    }
+    #guoguo:checked + label  .center {
+      width: 0px;
+      height: 0px;
+      transition: 
+        width .2s cubic-bezier(.29,1.01,.26,.97),
+        height .2s cubic-bezier(.37,.32,.46,.46);
+    }
+    .position-center {
+      box-sizing: border-box;;
+      display: inline-block;
+      width: 116px;
+      height: 58px;
+      background-color: transparent;
+      position: relative;
+      left: -2px;
+      top: -2px;
+    }
+
+    #ios {
+      display: none;
+    }
+    #ios + label {
+      width: 60px;
+      height: 30px;
+      background-color: #ddd;
+      display: inline-block;
+      border-radius: 999px;
+      position: relative;
+      padding: 3px;
+      box-shadow: 0 0 0 18px inset #6edc5f;
+      transition: box-shadow .3s linear;
+      cursor: pointer;
+    }
+
+    #ios + label::before {
+      content: '';
+      width: 30px;
+      height: 30px;
+      border-radius: 40px;
+      background-color: white;
+      display: inline-block;
+      position: absolute;
+      box-shadow: 0px 3px 3px #6669;
+      left: 3px;
+      transition: left .3s ease;
+    }
+
+    #ios:checked + label {
+      box-shadow: 0 0 0 18px #6edc5f inset;
+    }
+    #ios:checked + label::before {
+      left: 33px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="input-text">Lorem ipsum dolor
+    <input type="text" value="lorem">
+  </div>
+
+  <div  class="xiaomi">
+    <input type="checkbox" id="mi">
+    <label for="mi">
+      <div class="mi-ball"></div>
+    </label>
+  </div>
+  
+  <div  class="iphone">
+    <input type="checkbox" id="guoguo">
+    <label for="guoguo">
+      <div class="guoguo-ball"></div>
+      <div class="position-center">
+        <div class="center"></div>
+      </div>  
+    </label>
+  </div>
+
+  <input type="checkbox" id="ios">
+  <label for="ios"></label>
+</body>
+</html>

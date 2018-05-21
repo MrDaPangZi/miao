@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>固定文字</title>
+  <style>
+    table {
+      margin:10px;
+      border-collapse: collapse;
+      width: 350px;
+      height: 30px;
+    }
+    td {
+      border: 1px solid #888;
+      text-align: center;
+
+    }
+    input {
+      xwidth: 100%;
+      xborder: none;
+      font-size: inherit;
+    }
+    input:focus {
+      outline: none;
+    }
+    
+    .fixed {
+      background-color: #e9edef;
+    }
+
+    
+  </style>
+</head>
+<body class="left">
+  <table>
+    <tbody>
+      <tr>
+        <td class="fixed" class="fixed">foo aaaaaaaabar baz</td>
+        <td class="input"><input type="text" id="text-1"></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="right">
+    <tbody>
+      <tr>
+        <td class="input"><input type="text" id="text-2"></td>
+        <td class="fixed">Lorem</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+</body>
+</html>

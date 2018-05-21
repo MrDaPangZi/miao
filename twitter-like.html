@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    
+    input {
+      display: none;
+    }
+    
+    input + label {
+      display: inline-block;
+      background-image: url(./image/web_heart_animation_edge.png);
+      width: 100px;
+      height: 100px;
+      background-position: 0px center;
+      margin: 100px;
+      position: relative;
+      cursor: pointer;
+    }
+    input:checked + label {
+      background-position: -2800px center;
+      transition: background-position 1s steps(28);
+    }
+    .heart {
+      display: none;
+      position: absolute;
+      height: 35px;
+      margin: auto;
+      top: -30px;
+      left: 0;
+      right: 0;
+      background-color: black;
+      color: white;
+      line-height: 35px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .like {
+      width: 55px;
+    }
+    .no-like {
+      width: 88px;
+    }
+
+    input:checked + label:hover .no-like {
+      display: block;
+    }
+    label:hover .like{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="gender">
+  <label for="gender">
+    <div class="heart like">喜欢</div>
+    <div class="heart no-like">撤销喜欢</div>
+  </label>
+
+</body>
+</html>
