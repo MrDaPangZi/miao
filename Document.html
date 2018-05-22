@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)file:///C:/Users/15623/Documents/Tencent%20Files/156239007/FileRecv/miao/list.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Document</title>
+  <style>
+    .fix-fs {
+      font-size: 0;
+    }
+    .fix-fs * {
+      font-size: 30px;
+    }
+    body {
+      margin: 0;
+      font-size: 30px;
+    }
+    
+    ul {
+      box-sizing: border-box;
+      list-style: none;
+      padding: 0;
+      display: inline-block;
+      position: relative;
+    }
+    li {
+      text-align: center;
+      line-height: 45px;
+      box-sizing: border-box;
+      xborder: 1px solid;
+      xborder-top: none;
+      xborder-left: none;
+      display: inline-block;
+      width: 100px;
+      position: relative;
+      background-color: #434343;
+      color: #ccc;
+    }
+    li:hover {
+      background-color: #ef980f;
+      color: #fefefe;
+    }
+
+    .a-ul > li {
+      background-color: #23292d;
+    }
+    
+    .a-ul:hover > li {
+      background-color: #23292d;
+    }
+
+
+
+    /*----------------向下出现---------------------*/
+    .a-1-ul,
+    .a-2-ul,
+    .a-3-ul,
+    .a-4-ul {
+      position: absolute;
+      width: 100px;
+      left: 0;
+      top: 45px;
+      display: none;
+    }
+    /*----------------向右出现---------------------*/
+    .a-1-2-ul,
+    .a-1-1-ul,
+    .a-2-2-ul,
+    .a-2-1-ul,
+    .a-3-2-ul,
+    .a-3-1-ul,
+    .a-4-2-ul,
+    .a-4-1-ul,
+    .a-1-1-3-ul,
+    .a-1-1-3-7-ul,
+    .a-1-1-3-7-2-ul {
+      position: absolute;
+      width: 100px;
+      left: 100px;
+      top: 0;
+      display: none;
+    }
+    .a-1:hover > ul,
+    .a-1-1:hover > ul,
+    .a-1-2:hover > ul,
+    .a-2:hover > ul,
+    .a-2-1:hover > ul,
+    .a-2-2:hover > ul,
+    .a-3:hover > ul,
+    .a-3-1:hover > ul,
+    .a-3-2:hover > ul,
+    .a-4:hover > ul,
+    .a-4-1:hover > ul,
+    .a-4-2:hover > ul, 
+    .a-1-1-3:hover > ul,
+    .a-1-1-3-7:hover > ul,
+    .a-1-1-3-7-2:hover > ul {
+      display: block;
+    }
+    
+    .triangle:hover::before {
+      transform: rotate(90deg);
+      transition: transform .2s linear;
+      color: #fefefe;
+    }
+
+
+    /*--------------------三角----------------------*/
+    .triangle::before {
+      display: inline-block;
+      content: '';
+      width: 0px;
+      height: 0px;
+      color: #ccc;
+      border-left: 3px solid;
+      border-right: 3px solid transparent;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 7px;
+      transform: rotate(0deg);
+      transform-origin: 1.5px 3px;
+    }
+
+    
+
+  </style>
+</head>
+<body>
+  <ul class="a-ul fix-fs">
+    <li class="a-1 triangle">foo
+      <ul class="a-1-ul">
+        <li class="a-1-1 triangle">foo
+          <ul class="a-1-1-ul">
+            <li class="a-1-1-1">foo</li>
+            <li class="a-1-1-2">bar</li>
+            <li class="a-1-1-3 triangle">baz
+              <ul class="a-1-1-3-ul">
+                <li class="a-1-1-3-1">001</li>
+                <li class="a-1-1-3-2">002</li>
+                <li class="a-1-1-3-3">003</li>
+                <li class="a-1-1-3-4">004</li>
+                <li class="a-1-1-3-5">005</li>
+                <li class="a-1-1-3-6">006</li>
+                <li class="a-1-1-3-7 triangle">007
+                  <ul class="a-1-1-3-7-ul">
+                    <li class="a-1-1-3-7-1">foo</li>
+                    <li class="a-1-1-3-7-2 triangle">bar
+                      <ul class="a-1-1-3-7-2-ul">
+                        <li class="a-1-1-3-7-2-1">foo</li>
+                        <li class="a-1-1-3-7-2-2">bar</li>
+                        <li class="a-1-1-3-7-2-3">baz</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="a-1-2 triangle">bar
+          <ul class="a-1-2-ul">
+            <li class="a-1-2-1">foo</li>
+            <li class="a-1-2-2">bar</li>
+            <li class="a-1-2-3">baz</li>
+            <li class="a-1-2-4">quz</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li class="a-2 triangle">bar
+      <ul class="a-2-ul">
+        <li class="a-2-1 triangle">foo
+          <ul class="a-2-1-ul">
+            <li class="a-2-1-1">foo</li>
+            <li class="a-2-1-2">bar</li>
+            <li class="a-2-1-3">baz</li>
+          </ul>
+        </li>
+        <li class="a-2-2 triangle">bar
+          <ul class="a-2-2-ul">
+            <li class="a-2-2-1">001</li>
+            <li class="a-2-2-2">002</li>
+            <li class="a-2-2-3">003</li>
+            <li class="a-2-2-4">004</li>
+            <li class="a-2-2-5">005</li>
+            <li class="a-2-2-6">006</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li class="a-3 triangle">baz
+      <ul class="a-3-ul">
+        <li class="a-3-1 triangle">foo
+          <ul class="a-3-1-ul">
+            <li class="a-3-1-1">foo</li>
+            <li class="a-3-1-2">bar</li>
+            <li class="a-3-1-3">baz</li>
+          </ul>
+        </li>
+        <li class="a-3-2 triangle">bar
+          <ul class="a-3-2-ul">
+            <li class="a-3-2-1">foo</li>
+            <li class="a-3-2-2">bar</li>
+            <li class="a-3-2-3">baz</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li class="a-4 triangle">qux
+      <ul class="a-4-ul">
+        <li class="a-4-1 triangle">foo
+          <ul class="a-4-1-ul">
+            <li class="a-4-1-1">foo</li>
+            <li class="a-4-1-2">bar</li>
+            <li class="a-4-1-3">baz</li>
+          </ul>
+        </li>
+        <li class="a-4-2 triangle">bar
+          <ul class="a-4-2-ul">
+            <li class="a-4-2-1">foo</li>
+            <li class="a-4-2-2">bar</li>
+            <li class="a-4-2-3">baz</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+
+</body></html>
