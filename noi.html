@@ -1,0 +1,664 @@
+<script type="x" id="ch0103/01">
+  var a = +prompt('A: ')
+  var b = +prompt('B: ')
+  console.log(a + b)
+</script>
+  
+<script type="x" id="ch0103/02">
+  var a = +prompt('A: ')
+  var b = +prompt('B: ')
+  var c = +prompt('C: ')
+  console.log((a + b) * c)
+</script>
+
+<script type="x" id="ch0103/03">
+  var a = +prompt('A: ')
+  var b = +prompt('B: ')
+  var c = +prompt('C: ')
+  console.log((a - b) / c)
+</script>
+
+<script type="x" id="ch0103/04">
+  var a = +prompt('A: ')
+  var b = +prompt('B: ')
+  console.log((a - a % b ) / b)
+  console.log(a % b)
+</script>
+
+<script type="x" id="ch0103/05">
+  var a = +prompt('A: ')
+  var b = +prompt('B: ')
+  console.log((a / b).toFixed(9))
+</script>
+
+<script type="x" id="ch0103/06">
+  var a = +prompt('A: ')
+  var b = +prompt('B: ')
+  console.log((b / a * 100).toFixed(3) + '%')
+</script>
+
+<script type="x" id="ch0103/07">
+  var x = +prompt('x: ')
+  var a = +prompt('a: ')
+  var b = +prompt('b: ')
+  var c = +prompt('c: ')
+  var d = +prompt('d: ')
+  console.log(a * x ** 3 + b * x ** 2 + c * x + d)
+</script>
+
+<script type="x" id="ch0103/08">
+  var f = +prompt('F: ')
+  console.log((5 * (f - 32) / 9).toFixed(5))
+</script>
+
+<script type="x" id="ch0103/09">
+  var r = +prompt('r: ')
+  console.log((r * 2).toFixed(4) + ' ' + (2 * 3.14159 * r).toFixed(4) + ' ' + (3.14159 * r ** 2).toFixed(4))
+</script>
+
+<script type="x" id="ch0103/10">
+  var r1 = +prompt('r1: ')
+  var r2 = +prompt('r2: ')
+  console.log((1 / (1 / r1 + 1 / r2)).toFixed(2)) 
+</script>
+
+<script type="x" id="ch0103/11">
+  var a = +prompt('a:')
+  var b = +prompt('b:')
+  console.log((a % b).toFixed(4))
+</script>
+
+<script type="x" id="ch0103/12">
+  var r = +prompt('r: ')
+  console.log((4 / 3 * 3.14 * r ** 3).toFixed(2))
+</script>
+
+<script type="x" id="ch0103/13">
+  var n = prompt('三位数: ')
+  var a = n[0]
+  var b = n[1]
+  var c = n[2]
+  console.log(c + b + a)
+</script>
+
+<script type="x" id="ch0103/14">
+  var h = +prompt('深')
+  var r = +prompt('半径')
+  console.log(Math.ceil(20000 / (3.14159 * r ** 2 * h)))
+</script>
+
+<script type="x" id="ch0103/15">
+  var n = +prompt('n: ')
+  var x = +prompt('x: ')
+  var y = +prompt('y: ')
+  console.log(n - Math.ceil(y / x))
+</script>
+
+<script type="x" id="ch0103/16">
+  var xa = +prompt('xa: ')
+  var ya = +prompt('ya: ')
+  var xb = +prompt('xb: ')
+  var yb = +prompt('yb: ')
+  console.log(Math.sqrt((xa - xb) ** 2 + (ya - yb) ** 2).toFixed(3))
+</script>
+
+<script type="x" id="ch0103/17">
+  var x1 = +prompt('x1: ')
+  var y1 = +prompt('y1: ')
+  var x2 = +prompt('x2: ')
+  var y2 = +prompt('y2: ')
+  var x3 = +prompt('x3: ')
+  var y3 = +prompt('y3: ')
+  console.log(((x1 * y2 - x2 * y1 + x2 * y3 - x3 * y2 + x3 * y1 - x1 * y3) / 2).toFixed(2))
+</script>
+
+<script type="x" id="ch0103/18">
+  var a1 = +prompt('a1: ')
+  var a2 = +prompt('a2: ')
+  var n = +prompt('n: ')
+  console.log(a1 + (n - 1) * (a2 - a1))
+</script>
+
+<script type="x" id="ch0103/19">
+  var a = +prompt('A: ')
+  var b = +prompt('B: ')
+  console.log(a * b)
+</script>
+
+<script type="x" id="ch0103/20">
+  var n = +prompt('n: ')
+  console.log(2 ** n)
+</script>
+
+
+<!-- ------------------------------- -->
+
+<script type="x" id="ch0104/01">
+  var n = +prompt('n: ')
+  if (n > 0) {
+    console.log('positive')
+  } else if (n < 0) {
+    console.log('negative')
+  } else {
+    console.log('zero')
+  }
+</script>
+
+<script type="x" id="ch0104/02">
+  var n = +prompt('n: ')
+  if (n < 0) {
+    console.log(-n)
+  } else {
+    console.log(n)
+  }
+</script>
+
+<script type="x" id="ch0104/03">
+  var n = +prompt('n: ')
+  if (n % 2 !== 0) {
+    console.log('odd')
+  } else {
+    console.log('even')
+  }
+</script>
+
+<script type="x" id="ch0104/04">
+  var n = prompt('n:')
+  if (n.charCodeAt() % 2 === 0) {
+    console.log('NO')
+  } else {
+    console.log('YES')
+  }
+</script>
+
+<script type="x" id="ch0104/05">
+  var x = +prompt('x: ')
+  var y = +prompt('y: ')
+  if (x > y) {
+    console.log('>')
+  } else if (x < y) {
+    console.log('<')
+  } else {
+    console.log('=')
+  }
+</script>
+
+<script type="x" id="ch0104/06">
+  var n = +prompt('n: ')
+  if (n > 9 && n < 100) {
+    console.log('1')
+  } else {
+    console.log('0')
+  }
+</script>
+
+<script type="x" id="ch0104/07">
+  var a = +prompt('xy: ')
+  var b = +prompt('jl: ')
+  if (a > 9 || b > 19) {
+    console.log(1)
+  } else {
+    console.log(0)
+  }
+</script>
+
+<script type="x" id="ch0104/08">
+  var n = +prompt('n:')
+  if (n % 3 === 0 && n % 5 === 0) {
+    console.log('YES')
+  } else {
+    console.log('NO')
+  }
+</script>
+
+<script type="x" id="ch0104/09">
+  var n = +prompt('n: ')
+  var result = ''
+  if (n % 3 === 0) {
+    result += '3 '
+  }
+  if (n % 5 === 0) {
+    result += '5 '
+  }
+  if (n % 7 === 0) {
+    result += '7'
+  }
+  if (result == false) {
+    result = 'n'
+  }
+  console.log(result)
+</script>
+
+<script type="x" id="ch0104/10">
+  var a = +prompt('Chinese: ')
+  var b = +prompt('Math: ')
+  if (a < 60 && b < 60) {
+    console.log(0)
+  } else if (a >= 60 && b >= 60) {
+    console.log(0)
+  } else {
+    console.log(1)
+  }
+</script>
+
+<script type="x" id="ch0104/11">
+  var day = +prompt('day: ')
+  if (day === 1 || day === 3 || day ===5) {
+    console.log('NO')
+  } else {
+    console.log('YES')
+  }
+</script>
+
+<script type="x" id="ch0104/12">
+  var distance = +prompt('distance: ')
+  var walk = distance / 1.2
+  var bike = distance / 3 + 23 + 27
+  if (walk < bike) {
+    console.log('Walk')
+  } else if (walk > bike) {
+    console.log('Bike')
+  } else {
+    console.log('All')
+  }
+</script>
+
+<script type="x" id="ch0104/13">
+  var n = +prompt('n: ')
+  if (n < 5 && n >=0) {
+    console.log((-n + 2.5).toFixed(3))
+  } else if (n < 10) {
+    console.log((2 - 1.5 * (n - 3) ** 2).toFixed(3))
+  } else {
+    console.log((n / 2 - 1.5).toFixed(3))
+  }
+</script>
+
+<script type="x" id="ch0104/14">
+  var weight = +prompt('weight: ')
+  var overweight = prompt('overweight: ')
+  var charge = 8
+  if (weight > 1000) {
+    weight -= 1000
+    while (weight > 0) {
+      charge += 4
+      weight -= 500
+    }
+  }
+  if (overweight == 'y') {
+    charge += 5
+  }
+  console.log(charge)
+  
+</script>
+
+<script type="x" id="ch0104/15">
+  var a = +prompt('a: ')
+  var b = +prompt('b: ')
+  var c = +prompt('c: ')
+  if (b > a) {
+    a = b
+  }
+  if (c > a) {
+    a = c
+  }
+  console.log(a)
+
+</script>
+
+<script type="x" id="ch0104/16">
+  var a = +prompt('a: ')
+  var b = +prompt('b: ')
+  var c = +prompt('c: ')
+  var sum = a + b + c
+  if (sum / a <= 2 || sum / b <= 2 || sum / c <= 2) {
+    console.log('no')
+  } else {
+    console.log('yes')
+  }
+</script>
+
+<script type="x" id="ch0104/17">
+  var year = +prompt('year: ')
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 ===0 ){
+    console.log('Y')
+  } else {
+    console.log('N')
+  }
+</script>
+
+<script type="x" id="ch0104/18">
+  var x = +prompt('x: ')
+  var y = +prompt('y: ')
+  if ((x <= 1 && x >= -1) && (y <= 1 && y >= -1)) {
+    console.log('yes')
+  } else {
+    console.log('no')
+  }
+</script>
+
+<script type="x" id="ch0104/19">
+  var x = +prompt('x: ')
+  var y = +prompt('y: ')
+  var operator = prompt('operator: ')
+  var result
+  if (operator === '+') {
+    result = x + y
+  } else if (operator === '-') {
+    result = x - y
+  } else if (operator === '*') {
+    result = x * y
+  } else if (operator === '/') {
+    result = x / y
+  } else {
+    result = 'invalid'
+  }
+  if (result === 'invalid') {
+    console.log('Invalid operator!')
+  } else if (result === 0) {
+    console.log('Divided by zero!')
+  } else {
+    console.log(result)
+  }
+</script>
+
+<script type="x" id="ch0104/20">
+  var a = +prompt('a: ')
+  var b = +prompt('b: ')
+  var c = +prompt('c: ')
+  var delta = b * b - 4 * a * c
+  if (delta === 0) {
+    console.log('x1=x2=' + (-b / 2 / a).toFixed(5))
+  } else if (delta > 0) {
+    console.log('x1=' + ((-b + Math.sqrt(delta)) / 2 / a).toFixed(5) + ';x2=' + ((-b - Math.sqrt(delta)) / 2 / a).toFixed(5))
+  } else { 
+    console.log('x1=' + (-b / 2 / a).toFixed(5) + '+' + (Math.sqrt(-delta) / 2 / a).toFixed(5) + 'i;x2=' + (-b / 2 / a).toFixed(5) + '-' + (Math.sqrt(-delta) / 2 / a).toFixed(5) + 'i')
+  }
+
+</script>
+
+<script type="x" id="ch0104/21">
+  var n = +prompt('n: ')
+  var x = +prompt('x: ')
+  var y = +prompt('y: ')
+  var eat = 0
+  for (y; y > 0; y -= x) {
+    eat++
+  }
+  if (n - eat > 0 ) {
+    console.log(n - eat)
+  } else {
+    console.log(0)
+  }
+</script>
+
+<!-- ------------------------------- -->
+
+<script type="x" id='ch0105/01'>
+  var num = +prompt('学生总数:')
+  var age = 0
+  for (var i = 0; i < num; i++) {
+    age += +prompt('第' + (i + 1) + '个学生年龄:')
+  }
+  console.log((age / num).toFixed(2))
+</script>
+
+<script type="x" id='ch0105/02'>
+  var money = 0
+  for (var i = 0; i < 12; i++) {
+    money += +prompt('第' + (i + 1) + '个月的结余')
+  }
+  console.log('$' + money / 12)
+</script>
+
+<script type="x" id='ch0105/03'>
+  var n = +prompt('n: ')
+  var result = 0
+  for (var i = 1; i <= n; i++) {
+    result += +prompt('第' + i + '个数: ')
+  }
+  console.log((result / n).toFixed(4))
+</script>
+
+<script type="x" id='ch0105/04'>
+  var n = +prompt('n: ')
+  var result = 0
+  for (var i = 0; i < n; i++) {
+    result += +prompt('第' + (i + 1) + '个数: ')
+  }
+  console.log(result + ' ' + (result / n).toFixed(5))
+</script>
+
+
+<script type="x" id='ch0105/05'>
+  var person = +prompt('有多少个淫:')
+  var grade = 0
+  var maxNum = 0
+  for (var i = 0; i < person; i++) {
+    grade = +prompt('第' + (i + 1) + '个淫的成绩为:')
+    if ( grade > maxNum) {
+      maxNum = grade
+    }
+  }
+  console.log(maxNum)
+</script>
+
+<script type="x" id='ch0105/06'>
+  var n = +prompt('n: ')
+  var num = 0
+  var max = 0
+  var min = 0
+  for (var i = 1; i <= n; i++) {
+    num =  +prompt('第' + i + '个数: ')
+    if (num > max) {
+      max = num
+    }
+    if (num < min) {
+      min = num
+    }
+  }
+  console.log(max - min)
+</script>
+
+
+<script type="x" id='ch0105/07'>
+  var days = +prompt('决赛共有几天:')
+  var gold = 0
+  var silver = 0
+  var copper = 0
+  for (var i = 1; i <= days; i++) {
+    gold += +prompt('第' + i + '天获得金牌数量:')
+    silver += +prompt('第' + i + '天获得淫牌数量:')
+    copper += +prompt('第' + i + '天获得铜牌数量:')
+  }
+  var total = gold + silver + copper
+  console.log(gold + ' ' + silver + ' ' + copper + ' ' + total)
+</script>
+
+<script type="x" id='ch0105/08'>
+  var n = +prompt('n:')
+  var deg = 0
+  for (var i = 1; i < n; i++) {
+    deg += +prompt('第' + i + '个角的度数')
+  }
+  console.log((n - 2) * 180 - deg)
+</script>
+
+<script type="x" id='ch0105/09'>
+  var m = +prompt('m: ')
+  var n = +prompt('n: ')
+  var sum = 0
+  for (m; m <=n; m++) {
+    if (m % 2 === 1) {
+      sum += m
+    }
+  }
+  console.log(sum)
+</script>
+
+<script type="x" id='ch0105/10'>
+  var m = +prompt('m: ')
+  var n = +prompt('n: ')
+  var sum = 0
+  for (m; m <=n; m++) {
+    if (m % 17 === 0) {
+      sum += m
+    }
+  }
+  console.log(sum)
+</script>
+
+<script type="x" id='ch0105/11'>
+  var k = +prompt('k: ')
+  var num
+  var one = 0
+  var five = 0
+  var ten = 0
+  for (var i = 1; i <= k; i++) {
+    num = +prompt('第' + i + '个数:')
+    if (num === 1) {
+      one++
+    }
+    if (num === 5) {
+      five++
+    }
+    if (num === 10) {
+      ten++
+    }
+  }
+  console.log(one)
+  console.log(five)
+  console.log(ten)
+</script>
+
+<script type="x" id='ch0105/12'>
+  var n = +prompt('n: ')
+  var m = +prompt('m: ')
+  var result = 0
+  for (var i = 1; i <= n; i++) {
+    if (+prompt('第' + i + '个数') === m) {
+      result++
+    }
+  }
+  console.log(result)
+  
+</script>
+
+<script xtype="x" id='ch0105/13'>
+  var a = +prompt('a: ')
+  var n = +prompt('n: ')
+  if (n === 0) {
+    console.log(1)
+  } else {
+    var result = 1 
+    for (var i = 0; i < n; i++) {
+      result *= a
+    }
+    console.log(result)
+  }
+</script>
+
+<script type="x" id='ch0105/14'>
+  var people = +prompt('people: ')
+  var year = +prompt('year: ')
+  for (var i = 0; i < year; i++) {
+    people *= 1.001
+  }
+  console.log(people.toFixed(4))
+</script>
+
+<script type="x" id='ch0105/15'>
+  var r = +prompt('rate: ')
+  var m = +prompt('money: ')
+  var y = +prompt('year: ')
+  for (var i = 0; i < y; i++) {
+    m *= (1 + r / 100)
+  }
+  console.log(Math.floor(m))
+</script>
+
+<script type="x" id='ch0105/16'>
+  var pay = +prompt('年薪: ')
+  var k = +prompt('房价增长率: ')
+  var price = 200
+  var result = 'Impossible'
+  var money = 0
+  for (var i = 0; i < 20; i++) {
+    money += pay
+    if (money - price > 0) {
+      result = i + 1
+      break
+    }
+    price *= 1 + k / 100
+  }
+  console.log(result)
+
+</script>
+
+<script type="x" id='ch0105/17'>
+  var k = +prompt('k:')
+  var a = 1
+  var b = 1
+  var n = 0
+  for (var i = 1; i < k; i++) {
+    n = a
+    a = b
+    b = n + b
+  }
+  console.log(a)
+</script>
+
+<script type="x" id='ch0105/18'>
+  var n = +prompt('n: ')
+  var number
+  var valid
+  var  numberJ = +prompt('鸡尾酒实验总人数: ')
+  var  validJ = +prompt('鸡尾酒实验有效人数: ')
+  var jwj = validJ / numberJ
+  for (var i = 0; i < (n - 1); i++) {
+    number = +prompt('第'+ (i + 1) +'次实验总人数: ')
+    valid = +prompt('第'+ (i + 1) +'次实验有效人数: ')
+    if (valid / number - jwj > 0.05) {
+      console.log('better')
+    } else if (jwj - valid / number > 0.05) {
+      console.log('worse')
+    } else {
+      console.log('same')
+    }
+  }
+</script>
+
+<script type="x" id='ch0105/19'>
+  var n = +prompt('屋顶数:')
+  for (var i = 0; i < n; i++) {
+    var x = +prompt('第' + (i + 1) + '个屋顶的坐标x:')
+    var y = +prompt('第' + (i + 1) + '个屋顶的坐标y:')
+    var p = +prompt('第' + (i + 1) + '个屋顶的人数:')
+    var distance = Math.sqrt(x ** 2 + y ** 2)
+    var time = distance * 2 / 50 + p * 1.5
+    console.log(Math.ceil(time))
+  }
+
+</script>
+
+<script type="x" id='ch0105/20'>
+  var h = +prompt('height: ')
+  var distance = h
+  for (var i = 1; i < 10; i++) {
+    h /= 2
+    distance += h * 2
+  }
+  console.log(distance.toFixed(4))
+  console.log((h / 2).toFixed(7))
+</script>
+
+
+<script type="x" id='ch0105/2111'>
+
+</script>
+
+
+
+
+
+

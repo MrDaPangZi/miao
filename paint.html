@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>画图</title>
+    <style>
+    canvas {
+        border: 2px solid #f0f;
+        display: block;
+        margin: auto;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas width="400" height="300"></canvas>
+</body>
+<script>
+var cvs = document.querySelector('canvas')
+var ctx = cvs.getContext('2d')
+
+function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+}
+//画实线
+for (var i = 0; i < 1000; i++) {
+    dot(i, 10);
+}
+//画虚线
+var start = 0;
+var end = 10;
+for (var i = 0; i < 100; i++) {
+    for (var j = start; j < end; j++) {
+        dot(j, 20);
+    }
+    start = end + 10;
+    end = start + 10;
+
+}
+//画一个实点 一个空点的虚线
+for (var i = 0; i < 1000; i++) {
+    if (i % 2) {
+        dot(i, 30);
+    }
+}
+//画两个实点 两个空点的虚线
+start = 0;
+end = 2;
+for (var i = 0; i < 1000; i++) {
+    for (var j = start; j < end; j++) {
+        dot(j, 40);
+    }
+    start = end + 2;
+    end = start + 2;
+}
+//画三个实点 两个空点的虚线
+start = 0;
+end = 3;
+for (var i = 0; i < 1000; i++) {
+    for (var j = start; j < end; j++) {
+        dot(j, 50);
+    }
+    start = end + 2;
+    end = start + 2;
+}
+// 画一条45度的斜线
+// y = -x ;
+for (var x = 0; x < 1000; x++) {
+    dot(x, x);
+}
+//画一条跨越画布左上角和右下角的对角线
+for (var x = 0; x < 1000; x++) {
+    dot(x, 0.75 * x);
+}
+// 画一个实心矩形
+for (var i = 300; i < 350; i++) {
+    dot(i, 60);
+    dot(i, 100);
+}
+for (var i = 60; i < 100; i++) {
+    dot(300, i);
+    dot(350, i)
+}
+// 画一个空心的圆
+for (var x = 0; x < 1000; x++) {
+    for (var y = 0; y < 1000; y++) {
+        if (Math.abs(((x - 200) * (x - 200) + (y - 200) * (y - 200)) - 5000) < 1.1) {
+            dot(x, y);
+        }
+    }
+}
+</script>
+
+</html>
