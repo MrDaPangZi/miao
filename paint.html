@@ -91,6 +91,14 @@ for (var x = 0; x < 1000; x++) {
         }
     }
 }
+
+for (var i = 200; i <= 250; i++) {
+    for (var j = 200; j <= 250; j++) {
+      var g = (250 - j) * 5.1
+      var b = (i - 200) * 5.1
+      dot(j, i, 'rgb(255, ' + g + ', ' + b + ')')
+    }
+  }
 </script>
 
 </html>
