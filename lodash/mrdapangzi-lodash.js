@@ -1,4 +1,4 @@
-var gyqgyq = function() {
+var mrdapangzi = function() {
     /**
      * [chunk description]
      * @param  {array} array [description]
