@@ -1,533 +1,462 @@
 var mrdapangzi = function() {
-    /**
-     * [chunk description]
-     * @param  {array} array [description]
-     * @param  {Number} size  [description]
-     * @return {[type]}       [description]
-     */
     function chunk(array, size = 1) {
-        let res = []
-        let arr = []
-        for (let i of array) {
-            arr.push(i)
-            if (arr.length === size) {
-                res.push(arr)
-                arr = []
-            }
+        var result = []
+        for (var i = 0; i < array.length; i += size) {
+            result.push(array.slice(i, size + i))
         }
-        if (arr.length !== 0) {
-            res.push(arr)
-        }
-        return res
+        return result
     }
 
-    /**
-     * [compact description]
-     * @param  {[type]} array [description]
-     * @return {[type]}       [description]
-     */
     function compact(array) {
-        let res = []
-        for (let i = 0; i < array.length; i++) {
-            if (array[i]) {
-                res.push(array[i])
-            }
-        }
-        return res
+        return array.filter(item => item)
     }
 
-    /**
-     * [concat description]
-     * @param  {[type]} array [description]
-     * @return {[type]}       [description]
-     */
-    function concat(array) {
-        let res = []
-        for (let i = 0; i < arguments.length; i++) {
-            if (typeof arguments[i] === 'object') {
-                for (let j = 0; j < arguments[i].length; j++) {
-                    res.push(arguments[i][j])
-                }
-            } else {
-                res.push(arguments[i])
-            }
-        }
-        return res
+    function difference(array, ...values) {
+        return array.filter(x => ![].concat(...values).includes(x))
     }
 
-    /**
-     * [difference description]
-     * @param  {[type]} array [description]
-     * @param  {[type]} value [description]
-     * @return {[type]}       [description]
-     */
-    function difference(array, value) {
-        if (value === undefined || array === []) {
-            return array
-        }
-        let res = []
-        let val = []
-        for (let i = 1; i < arguments.length; i++) {
-            for (let j = 0; j < arguments[i].length; j++) {
-                val.push(arguments[i][j])
-            }
-        }
-        for (let i of array) {
-            if (val.indexOf(i) === -1) {
-                res.push(i)
-            }
-        }
-        return res
+    function drop(array, n = 1) {
+        var arr = []
+        forEach(array, (value, i) => {
+            if (i < n) return
+            arr.push(value)
+        })
+        return arr
     }
-    /**
-     * [differenceBy description]
-     * @param  {[type]} array    [description]
-     * @param  {[type]} value    [description]
-     * @param  {[type]} iteratee [description]
-     * @return {[type]}          [description]
-     */
-    function differenceBy(array, value, iteratee) {
-        let res = []
-        let newValue = []
-        if (typeof iteratee === 'function') {
-            for (let i of value) {
-                newValue.push(iteratee(i))
-            }
-            for (let i of array) {
-                if (newValue.indexOf(iteratee(i)) === -1) {
-                    res.push(i)
-                }
+
+    function dropRight(array, n = 1) {
+        var arr = []
+        if (n < array.length) {
+            forEach(array, (value, i) => {
+                if (i == array.length - n) return false
+                arr.push(value)
+            })
+        }
+        return arr
+    }
+
+    function unary(func) {
+        return (val => func(val))
+    }
+
+    function negate(func) {
+        return (...arug) => !func(...arug)
+    }
+
+    function range(start, end, step) {
+        if (arguments.length == 1) {
+            end = start
+            start = 0
+        }
+        var arr = []
+        if (step === 0) {
+            for (var i = start; i < end; i++) {
+                arr.push(start)
             }
         } else {
-            for (let i of value) {
-                newValue.push(i[iteratee])
-            }
-            for (let i of array) {
-                if (newValue.indexOf(i[iteratee]) === -1) {
-                    res.push(i)
-                }
-            }
+            if (start > end) step = step || -1
+            else step = step || 1
+            for (var i = start;
+            (i < end && step > 0) || (i > end && step < 0); i += step)
+            arr.push(i)
         }
-        return res
+        return arr
     }
 
-    /**
-     * [differenceWith description]
-     * @param  {[type]} array      [description]
-     * @param  {[type]} value      [description]
-     * @param  {[type]} comparator [description]
-     * @return {[type]}            [description]
-     */
-    function differenceWith(array, value, comparator) {
-        let res = []
-        array.forEach(item => {
-            if (!comparator(item, value)) {
-                res.push(item)
+    function rangeRight(start, end, step) {
+        if (arguments.length == 1) {
+            end = start
+            start = 0
+        }
+        var arr = []
+        if (step === 0) {
+            for (var i = start; i < end; i++) {
+                arr.push(start)
             }
-        })
-        return res
-    }
-
-    /**
-     * [drop description]
-     * @param  {[type]} array [description]
-     * @param  {Number} n     [description]
-     * @return {[type]}       [description]
-     */
-    function drop(array, n = 1) {
-        return array.splice(n)
-    }
-
-    /**
-     * [dropRight description]
-     * @param  {[type]} array [description]
-     * @param  {Number} n     [description]
-     * @return {[type]}       [description]
-     */
-    function dropRight(array, n = 1) {
-        return array.splice(0, array.length - n)
-    }
-
-    /**
-     * [dropRightWhile description]
-     * @param  {[type]} array     [description]
-     * @param  {[type]} predicate [description]
-     * @return {[type]}           [description]
-     */
-    function dropRightWhile(array, predicate) {
-        let res = []
-        if (typeof predicate === 'function') {
-            array.forEach(val => {
-                if (!predicate(val)) {
-                    res.push(val)
-                }
-            })
-        } else if (Array.isArray(predicate)) {
-            array.forEach(val => {
-                if (val[predicate[0]] !== predicate[1]) {
-                    res.push(val)
-                }
-            })
-        } else if (typeof predicate === 'object') {
-            array.forEach(val => {
-                if (!isEqual(val, predicate)) {
-                    res.push(val)
-                }
-            })
-        } else if (typeof predicate === 'string') {
-            array.forEach(val => {
-                if (predicate in val) {
-                    res.push(val)
-                }
-            })
+        } else {
+            if (start > end) step = step || -1
+            else step = step || 1
+            for (var i = end - step;
+            (i >= start && step > 0) || (i <= start && step < 0); i -= step)
+            arr.push(i)
         }
-        return res
+        return arr
     }
 
-    /**
-     * [dropWhile description]
-     * @param  {[type]} array     [description]
-     * @param  {[type]} predicate [description]
-     * @return {[type]}           [description]
-     */
-    function dropWhile(array, predicate) {
-        let res = []
-        if (typeof predicate === 'function') {
-            array.forEach(val => {
-                if (!predicate(val)) {
-                    res.push(val)
-                }
-            })
-        } else if (Array.isArray(predicate)) {
-            array.forEach(val => {
-                if (val[predicate[0]] !== predicate[1]) {
-                    res.push(val)
-                }
-            })
-        } else if (typeof predicate === 'object') {
-            array.forEach(val => {
-                if (!isEqual(val, predicate)) {
-                    res.push(val)
-                }
-            })
-        } else if (typeof predicate === 'string') {
-            array.forEach(val => {
-                if (predicate in val) {
-                    res.push(val)
-                }
-            })
+    function sum(array) {
+        return array.reduce((a, b) => a + b)
+    }
+
+    function keys(obj) {
+        return Object.keys(obj)
+    }
+
+    function uniq(array) {
+        return Array.from(new Set(array))
+    }
+    //function uniq  array => [... new Set(array)]
+
+    function isEqual(value, other) {
+        if (value === other || (value !== value && other !== other)) return true
+        if (typeof value === "object" && typeof other === "object") {
+            if (Array.isArray(other) !== Array.isArray(value)) return false
+            var key1 = keys(value)
+            var key2 = keys(other)
+            if (key1.length !== key2.length) return false
+            for (var i in value) {
+                if (!isEqual(value[i], other[i])) return false
+            }
+            return true
+        } else {
+            return false
         }
-        return res
     }
 
-    /**
-     * [fill description]
-     * @param  {[type]} array [description]
-     * @param  {[type]} value [description]
-     * @param  {Number} start [description]
-     * @param  {[type]} end   [description]
-     * @return {[type]}       [description]
-     */
-    function fill(array, value, start = 0, end = array.length) {
-        for (let i = start; i < end; i++) {
-            array[i] = value
+    function map(array, mapper = identity) {
+        mapper = iteratee(mapper)
+        return reduce(array, (result, value, index, arr) => {
+            result.push(mapper(value, index, arr))
+            return result
+        }, [])
+    }
+
+    function forEachRight(array, iteratee) {
+        for (var i = array.length - 1; i >= 0; i--) {
+            iteratee(array[i], i, array)
         }
         return array
     }
 
+    function forEach(array, iteratee) {
+        for (var i in array) {
+            if (i == +i) i = i - 0
+            if (iteratee(array[i], i, array) === false) break
+        }
+        return array
+    }
 
-    /**
-     * [unary description]
-     * @param  {[type]} func [description]
-     * @return {[type]}      [description]
-     */
-    function unary(func) {
-        return function(value) {
-            return func(value)
+    function differenceBy(array, values, itera = identity) {
+        itera = iteratee(itera)
+        var valuestemp = values.map(itera)
+        return array.filter(x => !valuestemp.includes(itera(x)))
+    }
+
+    function dropWhile(array, predicate) {
+        predicate = iteratee(predicate)
+        var flag = 0
+        return array.reduce((result, val) => {
+            if (!predicate(val)) flag = 1
+            if (flag) result.push(val)
+            return result
+        }, [])
+    }
+
+    function dropRightWhile(array, predicate) {
+        predicate = iteratee(predicate)
+        for (var i = array.length - 1; i >= 0; i--) {
+            if (!predicate(array[i])) return array.slice(0, i + 1)
         }
     }
 
-    /**
-     * [negate description]
-     * @param  {[type]} predicate [description]
-     * @return {[type]}           [description]
-     */
-    function negate(predicate) {
-        return function(...args) {
-            return !predicate(...args)
-        }
+    function identity(value) {
+        return value
     }
 
-    /**
-     * [range description]
-     * @param  {[type]} start [description]
-     * @param  {[type]} end   [description]
-     * @param  {Number} step  [description]
-     * @return {[type]}       [description]
-     */
-    function range(start, end, step = 1) {
-        let res = []
-        if (arguments.length === 1) {
-            end = start
-            start = 0
+    function toPath(value) {
+        var arr = []
+        var temp = ""
+        for (var i = 0; i < value.length; i++) {
+            if (value[i] === "." || value[i] === "[") {
+                arr.push(temp)
+                temp = ""
+            } else if (value[i] === "]") {} else temp += value[i]
         }
-        if (step === 0) {
-            for (let i = start; i < end; i += 1) {
-                res.push(start)
-            }
-            return res
-        }
-        if (end < start) {
-            if (arguments.length < 3) {
-                step = -1
-            }
-            for (let i = start; i > end; i += step) {
-                res.push(i)
-            }
-        } else {
-            for (let i = start; i < end; i += step) {
-                res.push(i)
-            }
-        }
-        return res
+        arr.push(temp)
+        return arr
     }
 
-    /**
-     * [rangeRight description]
-     * @param  {[type]} start [description]
-     * @param  {[type]} end   [description]
-     * @param  {Number} step  [description]
-     * @return {[type]}       [description]
-     */
-    function rangeRight(start, end, step = 1) {
-        let res = []
-        if (arguments.length === 1) {
-            end = start
-            start = 0
-        }
-        if (step === 0) {
-            for (let i = start; i < end; i += 1) {
-                res.unshift(start)
-            }
-            return res
-        }
-        if (end < start) {
-            if (arguments.length < 3) {
-                step = -1
-            }
-            for (let i = start; i > end; i += step) {
-                res.unshift(i)
-            }
-        } else {
-            for (let i = start; i < end; i += step) {
-                res.unshift(i)
-            }
-        }
-        return res
+    function get(object, path, defaultValue) {
+        if (!Array.isArray(path)) path = toPath(path)
+        var flag = true
+        forEach(path, value => {
+            if (object[value] === undefined) return flag = false
+            object = object[value]
+        })
+        return flag == true ? object : defaultValue
     }
 
-    /**
-     * [inRange description]
-     * @param  {[type]} number [description]
-     * @param  {[type]} start  [description]
-     * @param  {[type]} end    [description]
-     * @return {[type]}        [description]
-     */
-    function inRange(number, start, end) {
-        if (arguments.length === 2) {
-            end = start
-            start = 0
-        }
-        if (number >= 0) {
-            if (number >= start && number < end) {
-                return true
-            } else {
-                return false
-            }
-        } else {
-            if (number <= start && number > end) {
-                return true
-            } else {
-                return false
-            }
-        }
+    function property(path) {
+        return object => get(object, path)
+        // return bind(flip(ary(get,2)), path)
     }
 
-    /**
-     * [sum description]
-     * @param  {[type]} array [description]
-     * @return {[type]}       [description]
-     */
-    function sum(array) {
-        let sum = 0
-        for (let i = 0; i < array.length; i++) {
-            sum += array[i]
-        }
-        return sum
+    function sumBy(array, itera = identity) {
+        itera = iteratee(itera)
+        return array.map(itera).reduce((a, b) => a + b)
     }
 
-    /**
-     * [sumBy description]
-     * @param  {[type]} array    [description]
-     * @param  {[type]} iteratee [description]
-     * @return {[type]}          [description]
-     */
-    function sumBy(array, iteratee = identity) {
-        let sum = 0
-        if (typeof iteratee === 'function') {
-            for (let i = 0; i < array.length; i++) {
-                sum += iteratee(array[i])
-            }
-        } else {
-            for (let i = 0; i < array.length; i++) {
-                sum += array[i][iteratee]
-            }
-        }
-        return sum
-    }
-
-    /**
-     * [uniq description]
-     * @param  {[type]} array [description]
-     * @return {[type]}       [description]
-     */
-    function uniq(array) {
-        let res = []
-        for (let i of array) {
-            if (res.indexOf(i) === -1) {
-                res.push(i)
-            }
-        }
-        return res
-    }
-
-    /**
-     * [isEqual description]
-     * @param  {[type]}  value [description]
-     * @param  {[type]}  other [description]
-     * @return {Boolean}       [description]
-     */
-    function isEqual(value, other) {
-        if (value === other) {
-            return true
-        }
-
-        if (value !== value && other !== other) {
-            return true
-        }
-        if (Array.isArray(value) && Array.isArray(other)) {
-            let len = value.length
-            if (len !== other.length) {
-                return false
-            }
-            for (let i = 0; i < len; i++) {
-                if (!isEqual(value[i], other[i])) {
-                    return false
-                }
-                return true
-            }
-        }
-        if (typeof value === 'object' && typeof other === 'object') {
-            if (Array.isArray(value) || Array.isArray(other)) {
-                return false
-            }
-            let propNames = []
-            for (let i in value) {
-                propNames.push(i)
-            }
-            for (let i in other) {
-                propNames.push(i)
-            }
-            propNames = uniq(propNames)
-            for (let prop of propNames) {
-                if (!isEqual(value[prop], other[prop])) {
-                    return false
+    function isMatch(obj, src) {
+        for (var i in src) {
+            var flag = 1
+            for (var j in obj) {
+                if (i == j && isEqual(src[i], obj[j])) {
+                    flag = 0
+                    break
                 }
             }
-            return true
+            if (flag) return false
         }
-        return value === other
+        return true
     }
 
-    /**
-     * [head description]
-     * @param  {[type]} array [description]
-     * @return {[type]}       [description]
-     */
+    function matches(source) {
+        // return bind(flip(isMatch), source)
+        return obj => isMatch(obj, source)
+    }
+
+    function toArray(value) {
+        if (Array.isArray(value)) return value
+        var arr = []
+        if (typeof value == "object" || typeof value == "string") {
+            for (var i in value)
+            arr.push(value[i])
+        }
+        return arr
+    }
+
+    function flip(func) {
+        return (...argu) => func(...argu.reverse())
+    }
+
+    function ary(func, n = func.length) {
+        return (...argu) => func(...argu.slice(0, n))
+    }
+
+    function fromPairs(pairs) {
+        var obj = {}
+        forEach(pairs, ([index, val]) => obj[index] = val)
+        return obj
+    }
+
+    function toPairs(object) {
+        var arr = []
+        for (var i in object)
+        arr.push([i, object[i]])
+        return arr
+    }
+
+    function matchesProperty(path, srcValue) {
+        return matches(fromPairs([
+            [path, srcValue]
+        ]))
+    }
+
+    function iteratee(func = identity) {
+        var type = typeof func
+        if (type === "function") return func
+        else if (Array.isArray(func)) return matchesProperty(func[0], func[1])
+        else if (type === "string") return property(func)
+        else if (type === "object") return matches(func)
+    }
+
+    function fill(array, value, start = 0, end = array.length) {
+        return array.fill(value, start, end)
+    }
+
+    function findIndex(array, predicate = identity, fromIndex = 0) {
+        predicate = iteratee(predicate)
+        for (var i = fromIndex; i < array.length; i++)
+        if (predicate(array[i])) return i
+        return -1
+    }
+
+    function findLastIndex(array, predicate = identity, fromIndex = array.length - 1) {
+        predicate = iteratee(predicate)
+        for (var i = fromIndex; i >= 0; i--)
+        if (predicate(array[i])) return i
+        return -1
+    }
+
+    function flatten(array) {
+        return [].concat(...array)
+        // return [].concat.apply.bind([].concat,[])
+    }
+
+    function flattenDepth(array, depth = 1) {
+        if (depth == 0) return array.slice()
+        var result = []
+        for (var i = 0; i < array.length; i++) {
+            if (array[i].length !== undefined) result.push(...flattenDepth(array[i], depth - 1))
+            else result.push(array[i])
+        }
+        return result
+    }
+
+    function flattenDeep(array) {
+        return flattenDepth(array, Infinity)
+    }
+
+    function reduce(collection, iterat = identity, accumulator = 0) {
+        iterat = iteratee(iterat)
+        var result = accumulator
+        for (var i in collection) {
+            if (i == +i) i = i - 0
+            result = iterat(result, collection[i], i, collection)
+        }
+        return result
+    }
+
     function head(array) {
         return array[0]
     }
 
-    /**
-     * [indexOf description]
-     * @param  {[type]} array     [description]
-     * @param  {[type]} value     [description]
-     * @param  {Number} fromIndex [description]
-     * @return {[type]}           [description]
-     */
     function indexOf(array, value, fromIndex = 0) {
-        for (let i = fromIndex; i < array.length; i++) {
-            if (array[i] === value) {
-                return i
-            }
-        }
-        return -1
+        return array.indexOf(value, fromIndex)
     }
 
-    /**
-     * [initial description]
-     * @param  {[type]} array [description]
-     * @return {[type]}       [description]
-     */
+    function lastIndexOf(array, value, fromIndex = array.length - 1) {
+        return array.lastIndexOf(value, fromIndex)
+    }
+
     function initial(array) {
-        let res = []
-        for (let i = 0; i < array.length - 1; i++) {
-            res.push(array[i])
-        }
-        return res
+        return array.slice(0, array.length - 1)
     }
 
-    /**
-     * [intersection description]
-     * @param  {[type]} array [description]
-     * @return {[type]}       [description]
-     */
-    function intersection(array) {
-        let res = []
-        arguments[0].forEach(val => {
-            if (arguments[1].indexOf(val) !== -1) {
-                res.push(val)
-            }
-        })
-        return res
+    function intersection(...arrays) {
+        return intersectionBy(...arrays)
     }
+
+    function intersectionBy(...arrays) {
+        if (!Array.isArray(arrays[arrays.length - 1])) {
+            var iterat = iteratee(arrays.pop())
+        } else var iterat = identity
+        var arr = arrays.shift()
+        return reduce(arrays, (result, val) => {
+            if (result.length == 0) return []
+            var sub = []
+            forEach(result, values => {
+                if (map(val, iterat).includes(iterat(values))) sub.push(values)
+            })
+            return sub
+        }, arr)
+    }
+
+    function differenceWith(array, values, comparator) {
+        return filter(array, val => !isEqual(val, values[0]))
+    }
+
+
+    function join(array, sep) {
+        return array.join(sep)
+    }
+
+    function last(array) {
+        return array[array.length - 1]
+    }
+
+    function nth(array, n = 0) {
+        n = n < 0 ? array.length + n : n
+        return array[n]
+    }
+
+    function filter(collection, predicate = identity) {
+        var result = []
+        predicate = iteratee(predicate)
+        for (var i in collection) {
+            if (predicate(collection[i], i, collection)) result.push(collection[i])
+        }
+        return result
+    }
+
+    function bind(f, ...argu1) {
+        return (...argu2) => f(...argu1, ...argu2)
+    }
+
+    function pull(array, ...values) {
+        return array.filter(it => !values.includes(it))
+    }
+
+    function pullAll(array, values) {
+        return array.filter(it => !values.includes(it))
+    }
+
+    function pullAllBy(array, values, iterat = identity) {
+        iterat = iteratee(iterat)
+        return array.filter(it => !map(values, iterat).includes(iterat(it)))
+    }
+
+    function pullAllWith(array, values, comparator = isEqual) {
+        return array.filter(it => !values.some(val => comparator(val, it)))
+    }
+
+    function reverse(array) {
+        return array.reverse()
+    }
+
+
+
+
+
 
 
     return {
         chunk: chunk,
         compact: compact,
-        concat: concat,
         difference: difference,
-        differenceBy: differenceBy,
-        differenceWith: differenceWith,
         drop: drop,
         dropRight: dropRight,
-        dropRightWhile: dropRightWhile,
-        dropWhile: dropWhile,
-        fill: fill,
         unary: unary,
         negate: negate,
         range: range,
         rangeRight: rangeRight,
-        inRange: inRange,
         sum: sum,
-        sumBy: sumBy,
+        keys: keys,
         uniq: uniq,
         isEqual: isEqual,
+        map: map,
+        forEachRight: forEachRight,
+        forEach: forEach,
+        differenceBy: differenceBy,
+        dropWhile: dropWhile,
+        dropRightWhile: dropRightWhile,
+        identity: identity,
+        toPath: toPath,
+        get: get,
+        property: property,
+        sumBy: sumBy,
+        isMatch: isMatch,
+        toArray: toArray,
+        flip: flip,
+        fromPairs: fromPairs,
+        toPairs: toPairs,
+        matches: matches,
+        matchesProperty: matchesProperty,
+        iteratee: iteratee,
+        ary: ary,
+        fill: fill,
+        findLastIndex: findLastIndex,
+        findIndex: findIndex,
+        flatten: flatten,
+        flattenDepth: flattenDepth,
+        flattenDeep: flattenDeep,
+        reduce: reduce,
         head: head,
         indexOf: indexOf,
+        lastIndexOf: lastIndexOf,
         initial: initial,
         intersection: intersection,
-
+        join: join,
+        last: last,
+        nth: nth,
+        intersectionBy: intersectionBy,
+        filter: filter,
+        bind: bind,
+        differenceWith: differenceWith,
+        pull: pull,
+        pullAll: pullAll,
+        pullAllBy: pullAllBy,
+        pullAllWith: pullAllWith,
     }
+
+
 }()
